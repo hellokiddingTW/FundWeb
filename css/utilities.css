@@ -1,0 +1,55 @@
+.letter-space-s {
+  letter-spacing: 0.7px;
+}
+
+.letter-space-l {
+  letter-spacing: 2px;
+}
+
+.fz-7 {
+  font-size: 12px;
+}
+
+.fz-special {
+  font-size: 14px;
+}
+
+.subText {
+  font-family: NotoSansCJKtc-Regular;
+  font-size: 14px;
+  color: #636057;
+}
+
+.link-hover:hover {
+  color: #FF785E;
+}
+
+.link-color {
+  color: #FF785E;
+  text-decoration: none;
+}
+
+.btn-theme-hover {
+  color: #636057;
+}
+
+.btn-theme-hover:hover {
+  background-color: #FF785E;
+  color: #fff;
+  border-color: #FF785E;
+}
+
+.btn-secondary-hover {
+  color: #636057;
+}
+
+.btn-secondary-hover:hover {
+  background-color: #FFDF65;
+  border-color: #FFDF65;
+  color: #636057;
+}
+
+.btn-secondary-hover:hover .heart {
+  color: #FF785E;
+}
+/*# sourceMappingURL=utilities.css.map */

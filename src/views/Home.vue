@@ -46,6 +46,7 @@
               <button
                 class="btn btn-theme rounded-pill btnPd me-3 btn-theme-hover"
                 type="submit"
+                @click.prevent="openModal()"
               >
                 登入
               </button>
@@ -71,7 +72,9 @@
         <div class="container py-md-5 py-3">
           <div class="tittle mb-4">
             <span class="badge bg-secondary">魔法科技</span>
-            <h2 class="lh-base letter-space-l">拍出會動的照片｜LivePhotos 魔法拍立得</h2>
+            <h2 class="lh-base letter-space-l">
+              拍出會動的照片｜LivePhotos 魔法拍立得
+            </h2>
           </div>
           <div class="content">
             <div class="row">
@@ -182,7 +185,9 @@
                           btn-secondary-hover
                         "
                       >
-                        <span class="material-icons align-bottom me-2"> share </span>
+                        <span class="material-icons align-bottom me-2">
+                          share
+                        </span>
 
                         分享
                       </button>
@@ -210,7 +215,7 @@
                   >
                 </li>
                 <li
-                  class="nav-item "
+                  class="nav-item"
                   @click="clicked = '常見問答'"
                   :class="{ navActive: clicked == '常見問答' }"
                 >
@@ -219,20 +224,26 @@
                   >
                 </li>
                 <li
-                  class="nav-item "
+                  class="nav-item"
                   @click="clicked = '目前進度'"
                   :class="{ navActive: clicked == '目前進度' }"
                 >
-                  <router-link class="nav-link nav-fz p-3" href="#" to="/progress"
+                  <router-link
+                    class="nav-link nav-fz p-3"
+                    href="#"
+                    to="/progress"
                     >目前進度</router-link
                   >
                 </li>
                 <li
-                  class="nav-item "
+                  class="nav-item"
                   @click="clicked = '留言'"
                   :class="{ navActive: clicked == '留言' }"
                 >
-                  <router-link class="nav-link nav-fz p-3" href="#" to="/message"
+                  <router-link
+                    class="nav-link nav-fz p-3"
+                    href="#"
+                    to="/message"
                     >留言</router-link
                   >
                 </li>
@@ -303,7 +314,7 @@
                 <label for="email" class="form-label">連絡信箱</label>
                 <input
                   type="password"
-                  class="form-control bg-light "
+                  class="form-control bg-light"
                   id="email"
                 />
               </div>
@@ -346,48 +357,47 @@
         </p>
       </footer>
     </main>
+    <LoginModal/>
   </div>
 </template>
 
 <script>
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function () {
-  'use strict'
 
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  var forms = document.querySelectorAll('.needs-validation')
-
-  // Loop over them and prevent submission
-  Array.prototype.slice.call(forms)
-    .forEach(function (form) {
-      form.addEventListener('submit', function (event) {
-        if (!form.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
-        }
-
-        form.classList.add('was-validated')
-      }, false)
-    })
-})()
 </script>
 
 
 <script>
 // @ is an alias to /src
 import Sidebar from "../components/Sidebar";
+import LoginModal from "../components/loginModal";
+// window.bootstrap = require('bootstrap/dist/js/bootstrap.bundle.js');
+ import { Modal } from 'bootstrap'
+
 
 export default {
   name: "Home",
   components: {
     Sidebar,
+    LoginModal,
+    
   },
   data() {
     return {
       clicked: "專案介紹",
     };
   },
-  methods: {},
+  methods: {
+    openModal: function () {
+      console.log('123')
+      let myModal = new Modal(
+        document.getElementById("loginModal")
+      );
+      myModal.show()
+
+      // let modal =  document.getElementById("loginModal")
+      // console.log(modal.offsetHeight)
+    },
+  },
 };
 </script>
 
