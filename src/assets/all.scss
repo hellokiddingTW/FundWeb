@@ -1,1 +1,6 @@
+// 必要的方法 
+
+@import "~bootstrap/scss/functions"; 
+@import "./helpers/_variables";
 @import "~bootstrap/scss/bootstrap";
+@import"./helpers/utilities.scss";

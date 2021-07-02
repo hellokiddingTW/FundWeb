@@ -1,0 +1,59 @@
+//letter space
+
+.letter-space-s {
+    letter-spacing: 0.7px;
+  }
+
+  .letter-space-l {
+    letter-spacing: 2px;
+  }
+  
+
+
+  //font size
+
+  .fz-7 {
+    font-size: 12px;
+  }
+
+  .fz-special{
+      font-size: 14px;
+  }
+
+  .subText {
+    font-family: NotoSansCJKtc-Regular;
+    font-size: 14px;
+    color: #636057;
+  }
+
+  .link-hover{
+      &:hover{
+          color:#FF785E
+      }
+  }
+
+  .link-color{
+    color:#FF785E
+  }
+
+
+  .btn-theme-hover{
+      color:#636057;
+     &:hover{
+         background-color: #FF785E;
+         color:#fff  ;
+         border-color:#FF785E    
+     }
+  }
+
+  .btn-secondary-hover{
+    color:#636057;
+   &:hover{
+       background-color:#FFDF65 ;
+       border-color:#FFDF65 ;
+       color:#636057; 
+       .heart{
+           color:#FF785E
+       }   
+   }
+}
