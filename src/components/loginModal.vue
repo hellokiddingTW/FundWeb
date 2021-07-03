@@ -46,8 +46,8 @@
                 aria-valuemin="0"
                 aria-valuemax="100"
               ></div>
-              <sapn class=" position-absolute top-50 start-50 translate-middle subText"
-                >還沒有帳號? <a href="#" class="link-color">註冊一個帳號</a></sapn
+              <span class=" position-absolute top-50 start-50 translate-middle subText"
+                >還沒有帳號? <a href="#" class="link-color">註冊一個帳號</a></span
               >
             </div>
           </div>

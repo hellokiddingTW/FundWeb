@@ -289,26 +289,41 @@
                 </h4>
               </div>
             </div>
-            <form>
+
+            <form class="needs-validation" novalidate>
               <div class="mb-3">
                 <label class="form-label">贊助方案</label>
                 <select
                   class="form-select text-secondary bg-light"
                   aria-label="Default select example"
+                  required
                 >
                   <option selected>請選擇一個方案</option>
                   <option value="1">One</option>
                   <option value="2">Two</option>
                   <option value="3">Three</option>
                 </select>
+                <div class="invalid-feedback">請選擇一個方案</div>
               </div>
               <div class="mb-3">
                 <label for="name" class="form-label">收件人姓名</label>
-                <input type="name" class="form-control bg-light" id="name" />
+                <input
+                  type="name"
+                  class="form-control bg-light"
+                  id="name"
+                  required
+                />
+                <div class="invalid-feedback">請輸入正確的收件人姓名</div>
               </div>
               <div class="mb-3">
                 <label for="phone" class="form-label">聯絡電話</label>
-                <input type="phone" class="form-control bg-light" id="phone" />
+                <input
+                  type="phone"
+                  class="form-control bg-light"
+                  id="phone"
+                  required
+                />
+                <div class="invalid-feedback">請輸入正確的連絡電話</div>
               </div>
               <div class="mb-3">
                 <label for="email" class="form-label">連絡信箱</label>
@@ -316,19 +331,23 @@
                   type="password"
                   class="form-control bg-light"
                   id="email"
+                  required
                 />
+                <div class="invalid-feedback">請輸入正確的連絡信箱</div>
               </div>
               <div class="mb-3">
                 <label class="form-label">付款方式</label>
                 <select
                   class="form-select text-secondary bg-light"
                   aria-label="Default select example"
+                  required
                 >
                   <option selected>請選擇一個付款方式</option>
                   <option value="1">信用卡</option>
                   <option value="2">轉帳</option>
                   <option value="3">線上支付</option>
                 </select>
+                <div class="invalid-feedback">請選擇一種付款方式</div>
               </div>
               <div class="pt-2 d-grid d-md-block text-center">
                 <button
@@ -357,21 +376,40 @@
         </p>
       </footer>
     </main>
-    <LoginModal/>
+    <LoginModal />
   </div>
 </template>
-
+  
 <script>
-
+// Example starter JavaScript for disabling form submissions if there are invalid fields
 </script>
 
 
 <script>
-// @ is an alias to /src
 import Sidebar from "../components/Sidebar";
 import LoginModal from "../components/loginModal";
-// window.bootstrap = require('bootstrap/dist/js/bootstrap.bundle.js');
- import { Modal } from 'bootstrap'
+import { Modal } from "bootstrap";
+
+(function () {
+  "use strict";
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll(".needs-validation");
+   console.log('1232')
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms).forEach(function (form) {
+    form.addEventListener("submit",function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+          console.log('1232')
+        }
+        form.classList.add("was-validated");
+        console.log('1232')
+      },
+      false
+    );
+  });
+})();
 
 
 export default {
@@ -379,7 +417,6 @@ export default {
   components: {
     Sidebar,
     LoginModal,
-    
   },
   data() {
     return {
@@ -388,17 +425,37 @@ export default {
   },
   methods: {
     openModal: function () {
-      console.log('123')
-      let myModal = new Modal(
-        document.getElementById("loginModal")
-      );
-      myModal.show()
-
-      // let modal =  document.getElementById("loginModal")
-      // console.log(modal.offsetHeight)
+      console.log("123");
+      let myModal = new Modal(document.getElementById("loginModal"));
+      myModal.show();
     },
+    // validation: function () {
+    //   "use strict";
+    //   // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    //   var forms = document.querySelectorAll(".needs-validation");
+    //   // Loop over them and prevent submission
+    //   Array.prototype.slice.call(forms).forEach(function (form) {
+    //     form.addEventListener(
+    //       "submit",
+    //       function (event) {
+    //         if (!form.checkValidity()) {
+    //           event.preventDefault();
+    //           event.stopPropagation();
+    //         }
+    //         form.classList.add("was-validated");
+    //       },
+    //       false
+    //     );
+    //   });
+    // },
+  },
+  created() {
+    // this.validation()
   },
 };
+
+
+
 </script>
 
 <style lang="scss" scoped>
