@@ -359,6 +359,7 @@
                     btn-theme-hover
                     fs-5
                   "
+                  @click="validation()"
                 >
                   贊助專案
                 </button>
@@ -429,25 +430,25 @@ export default {
       let myModal = new Modal(document.getElementById("loginModal"));
       myModal.show();
     },
-    // validation: function () {
-    //   "use strict";
-    //   // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    //   var forms = document.querySelectorAll(".needs-validation");
-    //   // Loop over them and prevent submission
-    //   Array.prototype.slice.call(forms).forEach(function (form) {
-    //     form.addEventListener(
-    //       "submit",
-    //       function (event) {
-    //         if (!form.checkValidity()) {
-    //           event.preventDefault();
-    //           event.stopPropagation();
-    //         }
-    //         form.classList.add("was-validated");
-    //       },
-    //       false
-    //     );
-    //   });
-    // },
+    validation: function () {
+      "use strict";
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.querySelectorAll(".needs-validation");
+      // Loop over them and prevent submission
+      Array.prototype.slice.call(forms).forEach(function (form) {
+        form.addEventListener(
+          "submit",
+          function (event) {
+            if (!form.checkValidity()) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add("was-validated");
+          },
+          false
+        );
+      });
+    },
   },
   created() {
     // this.validation()
